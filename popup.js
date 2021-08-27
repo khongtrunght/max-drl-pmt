@@ -3,17 +3,43 @@ function renderCookie(content) {
 }
 document.getElementById("refresh").style.visibility = "hidden";
 
+function saveBearer() {
+    const key = "adal.idtoken";
+    chrome.tabs.getSelected(null, (tab) => {
+        console.log(tab.url);
+        chrome.tabs.executeScript(tab.id, { code: `localStorage['${key}']` }, (results) => {
+            token = "Bearer " + results;
+            localStorage.setItem("token", token);
+            console.log(token);
+        });
+
+    });
+};
+
+
+
 function getcookie() {
 
     function getCookies() {
         chrome.cookies.get({ "url": "https://ctsv.hust.edu.vn", "name": "TokenCode" }, function(cookie) {
+            var token;
 
             if (cookie == null) {
+                saveBearer();
+                token = localStorage.getItem("token");
+                console.log("token : " + token);
+                // console.log(getBearer());
+            } else {
+                token = cookie.value;
+            }
+
+            if (token == null) {
                 renderCookie("<h1>Bạn phải đăng nhập vào ctsv.hust.edu.vn trước khi sử dụng</h1>");
                 return;
-            }
-            var token = cookie.value;
-            console.log(token);
+            };
+
+
+            console.log("Token : " + token);
             chrome.cookies.get({ "url": "https://ctsv.hust.edu.vn", "name": "UserName" }, function(cookie) {
 
                 var un = cookie.value;

@@ -9,6 +9,8 @@
         "default_popup": "popup.html"
     },
     "permissions": [
+        "activeTab",
+        "storage",
         "cookies",
         "https://ctsv.hust.edu.vn/",
         "https://*.hust.edu.vn/*",
