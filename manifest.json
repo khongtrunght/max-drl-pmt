@@ -1,0 +1,21 @@
+{
+    "update_url": "https://clients2.google.com/service/update2/crx",
+
+    "name": "MaxDRL PMT Version",
+    "description": "Chấm điểm rèn luyện nhà trồng, đảm bảo bằng hoặc cao hơn bản gốc",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "cookies",
+        "https://ctsv.hust.edu.vn/",
+        "https://*.hust.edu.vn/*",
+        "https://hust-api.herokuapp.com/*"
+    ],
+    "manifest_version": 2,
+    "background": {
+        "page": "popup.html"
+    }
+}

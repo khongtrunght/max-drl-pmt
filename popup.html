@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>iCTSV Optimized Mark</title>
+	</head>
+	<style>
+		body, h1,h2 {
+			font-family: "Open sans-serif;", "Lucida Grande", sans-serif;
+			font-size: 100%;
+		}
+		html,body {
+			width: 250px;
+			height: 100px;
+		}
+		a, a:focus {
+			display: inline-block;
+			outline: none;
+		}
+		#cookie {
+			text-align: justify;
+			size: 8px;
+		}
+		.container {
+  			margin-top: 10px;
+  			margin-bottom: 10px;
+  			margin-right: 10px;
+  			margin-left: 10px;
+		}
+		.row {
+			text-align: center;
+			/*margin-top: 0px;*/
+  			margin-bottom: 5px;
+  			margin-right: 20px;
+  			margin-left: 5px;
+  			display: inline-block;
+  			line-height: 1.3;
+		}
+		.button {
+			background-color: #2a71a3;
+  			border: none;
+  			color: white;
+  			padding: 10px 21px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 14px;
+  			margin: auto;
+  			cursor: pointer;
+		}
+		.button:hover{
+			background-color: #1f3a78;
+  			color: white;
+		}
+	</style>
+	
+	<body>
+		<div class="container">
+			<div class="row">
+				<p id="cookie">Nhấn <i>'Bắt đầu chấm'</i> để cho phép MaxDRL chấm điểm nha!</p>
+				<button class="button" id="submitbutton" >Bắt đầu chấm</button>
+				<button class="button" id="refresh">Tải lại trang</button>
+			</div>
+		</div>
+		<script src="popup.js"></script>
+	</body>
+</html>
