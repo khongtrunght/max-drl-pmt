@@ -17,7 +17,7 @@ Chromium Base Browser như Edge hoặc Google Chrome
 
 * Clone the repo 
   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/khongtrunght/max-drl-pmt.git
    ```
 
 * Bật developer mode trong chrome://extensions/ 
