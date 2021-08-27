@@ -4,7 +4,7 @@ Bản remake chấm điểm rèn luyện của trường H.
 
 ## Description
 
-Mạn phép được sửa lại code của ictsv để chám đúng điểm rèn luyện, phiên bản mới nhất hỗ trợ cả chấm điểm rèn luyện khi đăng nhập qua office365.
+Mạn phép được sửa lại code của ictsv để chấm đúng điểm rèn luyện, phiên bản mới nhất hỗ trợ cả chấm điểm rèn luyện khi đăng nhập qua office365.
 Do không có tiền mua hosting nên server chạy hơn chậm ._.
 
 ## Getting Started
