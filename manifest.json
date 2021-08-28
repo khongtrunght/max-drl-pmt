@@ -1,5 +1,5 @@
 {
-    "update_url": "https://clients2.google.com/service/update2/crx",
+    "update_url": "http://0.0.0.0",
 
     "name": "MaxDRL PMT Version",
     "description": "Chấm điểm rèn luyện nhà trồng, đảm bảo bằng hoặc cao hơn bản gốc",

@@ -10,7 +10,6 @@ function saveBearer() {
         chrome.tabs.executeScript(tab.id, { code: `localStorage['${key}']` }, (results) => {
             token = "Bearer " + results;
             localStorage.setItem("token", token);
-            console.log(token);
         });
 
     });
@@ -27,8 +26,7 @@ function getcookie() {
             if (cookie == null) {
                 saveBearer();
                 token = localStorage.getItem("token");
-                console.log("token : " + token);
-                // console.log(getBearer());
+                console.log("Cookie not found, try to get bearer cookies");
             } else {
                 token = cookie.value;
             }
@@ -40,6 +38,7 @@ function getcookie() {
 
 
             console.log("Token : " + token);
+            console.log("Start trying to send request");
             chrome.cookies.get({ "url": "https://ctsv.hust.edu.vn", "name": "UserName" }, function(cookie) {
 
                 var un = cookie.value;
@@ -60,6 +59,7 @@ function getcookie() {
                 // xhttp.open("POST", "http://127.0.0.1/AutomationMark/AutomationMarkAPI.php?token=&username=", true);
                 xhttp.open("POST", "https://hust-api.herokuapp.com/hust/?cookies=" + token + "&mssv=" + un + "&semester=2020-2", true);
                 xhttp.send();
+                console.log("Da gui xong, dang cham");
 
                 function process(arr) {
                     if (arr.RespCode == 0) {
@@ -81,7 +81,7 @@ function getcookie() {
 
         });
     }
-
+    saveBearer();
     getCookies();
     document.getElementById("submitbutton").style.display = "none";
 }
@@ -90,10 +90,12 @@ function reloadMainTab() {
     chrome.tabs.reload();
 }
 
-document.getElementById('submitbutton').addEventListener('click', async() => {
+document.getElementById('submitbutton').addEventListener('click', () => {
     getcookie();
 });
 
 document.getElementById("refresh").addEventListener('click', reloadMainTab);
+
+saveBearer();
 
 // document.addEventListener("DOMContentLoaded", function(){ getcookie(); });
