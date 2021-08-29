@@ -43,7 +43,7 @@ function getcookie() {
 
                 var un = cookie.value;
 
-                renderCookie("<h1><b>MaxDRL PMT đang chạy, vui lòng chờ từ 20-30 giây nhé, chạy chậm do không có tiền thuê sever nhé!</b></h1></br>" + "<img src=\"load.gif\" alt=\"Loading\">");
+                renderCookie("<h1><b>MaxDRL PMT đang chạy, chỉ chút xíu thoy là có kết quả</b></h1></br>" + "<img src=\"load.gif\" alt=\"Loading\">");
 
                 var xhttp = new XMLHttpRequest();
 
@@ -65,13 +65,13 @@ function getcookie() {
                     if (arr.RespCode == 0) {
                         renderCookie("<h3>MaxDRL đã chấm điểm tự động thành công! Điểm của bạn là " + arr.Mark + "</h3>");
                         document.getElementById("refresh").style.visibility = "visible";
-                    } else if (arr.RespCode == 101) {
+                    } else if (arr.RespCode == 104) {
                         renderCookie("<h3>Phiên đăng nhập đã hết hạn</h3>");
                     } else if (arr.RespCode == 102) {
                         renderCookie("<h3>Dữ liệu nhập vào có vẻ trống. Hãy thử đăng nhập lại bằng tài khoản</h3>");
-                    } else if (arr.RespCode == 103) {
+                    } else if (arr.RespCode == 101) {
                         renderCookie("<h3>Có lỗi xảy ra khi chấm điểm</h3>");
-                    } else if (arr.RespCode == 104) {
+                    } else if (arr.RespCode == 103) {
                         renderCookie("<h3>Không đầy đủ các tiêu chí. Các tiêu chí bị thiếu: " + arr.lack + "</h3>");
                     } else {
                         renderCookie("<h3>Không xác định được mã lỗi</h3>");
