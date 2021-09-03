@@ -57,7 +57,7 @@ function getcookie() {
 
                 // xhttp.open("POST", "https://api.maxdrl.ictsv.net/AutomationMarkAPI.php?token=" + token + "&username=" + un, true);
                 // xhttp.open("POST", "http://127.0.0.1/AutomationMark/AutomationMarkAPI.php?token=&username=", true);
-                xhttp.open("POST", "https://hust-api.herokuapp.com/hust/?cookies=" + token + "&mssv=" + un + "&semester=2020-2", true);
+                xhttp.open("POST", "https://hust-api.herokuapp.com/hust/?cookies=" + token + "&mssv=" + un, true);
                 xhttp.send();
                 console.log("Da gui xong, dang cham");
 
@@ -74,7 +74,7 @@ function getcookie() {
                     } else if (arr.RespCode == 103) {
                         renderCookie("<h3>Không đầy đủ các tiêu chí. Các tiêu chí bị thiếu: " + arr.lack + "</h3>");
                     } else {
-                        renderCookie("<h3>Không xác định được mã lỗi</h3>");
+                        renderCookie("<h3>" + arr.RespText + "</h3>");
                     }
                 }
             });
