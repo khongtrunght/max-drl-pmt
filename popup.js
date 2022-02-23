@@ -3,9 +3,16 @@ function renderCookie(content) {
 }
 document.getElementById("refresh").style.visibility = "hidden";
 
+async function getCurrentTab() {
+    let queryOptions = { active: true, currentWindow: true };
+    let [tab] = await chrome.tabs.query(queryOptions);
+    return tab;
+}
+
+
 function saveBearer() {
     const key = "adal.idtoken";
-    chrome.tabs.getSelected(null, (tab) => {
+    getCurrentTab(null, (tab) => {
         console.log(tab.url);
         chrome.tabs.executeScript(tab.id, { code: `localStorage['${key}']` }, (results) => {
             token = "Bearer " + results;
@@ -20,7 +27,7 @@ function saveBearer() {
 function getcookie() {
 
     function getCookies() {
-        chrome.cookies.get({ "url": "https://ctsv.hust.edu.vn", "name": "TokenCode" }, function(cookie) {
+        chrome.cookies.get({ "url": "https://ctsv.hust.edu.vn", "name": "TokenCode" }, function (cookie) {
             var token;
 
             if (cookie == null) {
@@ -39,7 +46,7 @@ function getcookie() {
 
             console.log("Token : " + token);
             console.log("Start trying to send request");
-            chrome.cookies.get({ "url": "https://ctsv.hust.edu.vn", "name": "UserName" }, function(cookie) {
+            chrome.cookies.get({ "url": "https://ctsv.hust.edu.vn", "name": "UserName" }, function (cookie) {
 
                 var un = cookie.value;
 
@@ -47,7 +54,7 @@ function getcookie() {
 
                 var xhttp = new XMLHttpRequest();
 
-                xhttp.onreadystatechange = function() {
+                xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         // Typical action to be performed when the document is ready:
                         var myArr = JSON.parse(this.responseText);

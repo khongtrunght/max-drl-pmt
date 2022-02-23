@@ -1,23 +1,18 @@
 {
-    "update_url": "http://0.0.0.0",
-
     "name": "MaxDRL PMT Version",
     "description": "Chấm điểm rèn luyện nhà trồng, đảm bảo bằng hoặc cao hơn bản gốc",
     "version": "1.0",
-    "browser_action": {
+    "action": {
         "default_icon": "icon.png",
         "default_popup": "popup.html"
     },
+    "host_permissions": [
+        "https://ctsv.hust.edu.vn/",
+        "https://*.hust.edu.vn/*"
+    ],
     "permissions": [
         "activeTab",
-        "storage",
-        "cookies",
-        "https://ctsv.hust.edu.vn/",
-        "https://*.hust.edu.vn/*",
-        "https://hust-api.herokuapp.com/*"
+        "cookies"
     ],
-    "manifest_version": 2,
-    "background": {
-        "page": "popup.html"
-    }
+    "manifest_version": 3
 }
