@@ -7,7 +7,7 @@ Bản remake chấm điểm rèn luyện của trường H.
 Mạn phép được sửa lại code của ictsv để chấm đúng điểm rèn luyện, phiên bản mới nhất hỗ trợ cả chấm điểm rèn luyện khi đăng nhập qua office365.
 Do không có tiền mua hosting nên server chạy hơn chậm ._.. 
 
-UPDATE: Bản mới nhất của api đã thay đổi thuật toán khác thay vì backtracking, cải thiện đáng kể thời gian chạy.
+Update : Hiện đã quay lại dùng backtracking cho chắc chắn, thuật toán [Max Weight Matching](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.matching.max_weight_matching.html) hoạt động không chính xác trong một số trường hợp
 
 ## Getting Started
 
